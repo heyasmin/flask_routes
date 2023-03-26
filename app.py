@@ -65,6 +65,23 @@ def say_hello_page(name):
 def get_text():
     return Response("Hello from Flask using an explicit Response object", mimetype='text/plain')
 
+@app.route('/about')
+def about():
+    url = url_for('get_text')
+    return """
+    <html>
+    <head>
+        <title>About page - Flask routes</title>
+    </head>
+    <body>
+        <h1>About page</h1>
+        <p>Example about page.</p>
+        <hr>
+        <a href="{}">Welcome</a>       
+    </body>
+    </html>
+    """.format(url)
+
 
 @app.route("/index/<name>/<int:age>")
 def index(name, age):
@@ -79,10 +96,11 @@ def index(name, age):
         <p>Hello {}!</p>
         <p>You are {} year(s) old.</p> 
         <hr>
-        <a href="{}">Welcome</a>       
+        <a href="{}">Welcome</a>         
 </body>
 </html>
 """.format(name, age, url)
+
 
 
 
