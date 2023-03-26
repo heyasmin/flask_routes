@@ -77,11 +77,10 @@ def about():
         <h1>About page</h1>
         <p>Example about page.</p>
         <hr>
-        <a href="{}">Welcome</a>       
+        <a href="{}">Welcome</a>
     </body>
     </html>
     """.format(url)
-
 
 @app.route("/index/<name>/<int:age>")
 def index(name, age):
@@ -94,16 +93,12 @@ def index(name, age):
 <body>
         <h1>Name page</h1>
         <p>Hello {}!</p>
-        <p>You are {} year(s) old.</p> 
+        <p>You are {} year(s) old.</p>
         <hr>
-        <a href="{}">Welcome</a>         
+        <a href="/about">About</a>
 </body>
 </html>
 """.format(name, age, url)
-
-
-
-
 
 
 # this always stays at the bottom of the file!!
