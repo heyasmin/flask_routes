@@ -59,7 +59,27 @@ def say_hello_page(name):
     </html>
     """.format(name)
 
-
+# page 440 exercise
+@app.route('/get/text')
+def get_text():
+    return Response("Hello from Flask using an explicit Response object", mimetype='text/plain')
+@app.route("/index/<name>/<int:age>")
+def index(name, age):
+    url = url_for('get_text')
+    return """
+<html>
+<head>
+        <title>Sample - Flask routes</title>
+</head>
+<body>
+        <h1>Name page</h1>
+        <p>Hello {}!</p>
+        <p>You are {} year(s) old.</p> 
+        <hr>
+        <a href="{}">Welcome</a>       
+</body>
+</html>
+""".format(name, age, url)
 
 
 
