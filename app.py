@@ -1,4 +1,4 @@
-from flask import Flask, Response, request
+from flask import Flask, Response, request, url_for
 
 # variable called app, to activate Flask basically
 app = Flask(__name__)
@@ -15,9 +15,9 @@ def bye_from_flask():
     return "Bye! See you soon."
 
 
-@app.route('/get/text')
-def get_text():
-    return Response("Hello from Flask using an explicit Response object", mimetype='text/plain')
+# @app.route('/get/text')
+# def get_text():
+#     return Response("Hello from Flask using an explicit Response object", mimetype='text/plain')
 
 
 # this particular route will only match if it has a post request
@@ -59,10 +59,13 @@ def say_hello_page(name):
     </html>
     """.format(name)
 
+
 # page 440 exercise
 @app.route('/get/text')
 def get_text():
     return Response("Hello from Flask using an explicit Response object", mimetype='text/plain')
+
+
 @app.route("/index/<name>/<int:age>")
 def index(name, age):
     url = url_for('get_text')
